@@ -11,17 +11,14 @@
 >>>>
 */
 
+function findSum(number, multiple) {
+        const totalNum = Math.floor((number - 1) / multiple);
+        return multiple * (totalNum * (totalNum + 1) / 2);
+}
+
 function multiplesOf3and5(number) {
 
-    const numOf3 = Math.floor((number - 1) / 3);
-    const numOf5 = Math.floor((number - 1) / 5);
-    const numOf15 = Math.floor((number - 1) / 15);
-
-    const sumOf3 = 3 * (numOf3 * (numOf3 + 1) / 2);
-    const sumOf5 = 5 * (numOf5 * (numOf5 + 1) / 2);
-    const sumOf15 = 15 * (numOf15 * (numOf15 + 1) / 2);
-
-    return sumOf3 + sumOf5 - sumOf15;
+        return findSum(number, 3) + findSum(number, 5) - findSum(number, 15);
 }
 
 multiplesOf3and5(1000);
